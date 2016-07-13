@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script src="react.min.js"></script>
+    <script src="react-dom.min.js"></script>
+    <script src="browser.min.js"></script>
+    <style type="text/css" rel="stylesheet">
+        .name{
+            margin: 30px;
+            border-left:150px solid #fff;
+            border-right:150px solid #000;
+            border-radius:150px;
+            height:300px;
+            position: relative;
+            width: 0;
+            box-shadow: 0 0 10px #000;
+            -webkit-animation:rotation 3s linear infinite;
+        }
+        .name:before{
+            top:0;
+            left: -75px;
+            position: absolute;
+            background: #fff;
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+            content: "";
+            display: block;
+            box-shadow: 0 150px 0 #000;
+        }
+        .name:after{
+            top:55px;
+            left: -20px;
+            position: absolute;
+            background: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            content: "";
+            display: block;
+            box-shadow: 0 150px 0 #fff;
+        }
+        @-webkit-keyframes rotation {
+            0% {-webkit-transform:rotate(0deg);}
+            100% {-webkit-transform:rotate(-360deg);}
+        }
+        .triangle{
+             width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="triangle"></div>
+    <div id="taiji"></div>
+    <script type="text/babel">
+        var Taiji = React.createClass({
+                render:function  () {
+                    
+                    return  <div className="name" style={{}}></div>;
+                    
+                }
+
+        });
+        ReactDOM.render(
+             <Taiji cla="name"/>
+            ,document.getElementById('taiji'))
+    </script>
+</body>
+</html>

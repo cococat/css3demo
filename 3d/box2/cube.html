@@ -1,0 +1,102 @@
+<!doctype html>
+<head>
+<title>Cube</title>
+<style type="text/css">
+div.cube {
+	width: 1280px;
+	height: 1280px;
+	-webkit-transform-style: preserve-3d;
+	background: url("carton.jpg") 0px 21px;
+	-webkit-transform:rotateX(65deg) rotateZ(30deg);
+}
+
+div.cube>div {
+	width: 500px;
+	height: 500px;
+	background-image: url("carton.jpg");
+	position: absolute;
+	z-index:0;
+}
+div.cube>img.img{
+	height:100px;
+	width:100px;
+	background-size:100%;
+	position:absolute;
+	<!--
+	-webkit-transition:background 1s linear,height 1s linear,width 1s linear;
+	-->
+	}
+.mask{position:absolute;top:0px;left:0px;z-index:100;background-color:#000;width:100%;height:100%;opacity: 0.5;}
+.mask iframe{width:0px;height:0px;opacity:0;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);}
+.uponmask{text-align:center;margin:0px;z-index:200;width:100%;height:100%;position:absolute;top:40%;left:0px;}
+</style>
+</head>
+<body>
+	<label>x<input type="number" value="65" step="5" data-name="x" /></label>
+	<label>y<input type="number" value="0" step="5" data-name="y" /></label>
+	<label>z<input type="number" value="30" step="5" data-name="z" /></label>
+	<div style="width: 1580px; height: 1580px; overflow: hidden; -webkit-perspective: 5000;">
+		<div class="cube">
+			<div style="width: 575px; height: 576px; background-position: -358px -362px; -webkit-transform: translate3d(356px, 376px, 230px)"></div>
+			<div style="width: 576px; height: 231px; background-position: -1300px -362px; -webkit-transform: translate3d(67px, 552px, 117px) rotateX(-90deg) rotateY(-90deg)"></div>
+			<div style="width: 576px; height: 233px; background-position: -1300px -822px; margin: 0px; padding: 0px; position: absolute; -webkit-transform: translate3d(642px, 548px, 114px) rotateX(-90deg) rotateY(90deg);"></div>
+			<div style="width: 576px; height: 232px; background-position: -1301px -131px; -webkit-transform: translate3d(355px, 833px, 114px) rotateX(-90deg);"></div>
+			<div style="width: 576px; height: 231px; background-position: -1300px -592px; -webkit-transform: translate3d(356px, 261px, 114px) rotateX(-90deg) rotateY(180deg);"></div>
+			<img class="img" src="mao.jpg" style="-webkit-transform:rotateX(-90deg) translate3d(784px,-280px,460px)"/>
+			<img class="img" src="mao.jpg" style="-webkit-transform:rotateX(-90deg) translate3d(484px,-280px,800px)"/>
+			<img class="img" src="mao.jpg" style="-webkit-transform:rotateX(-90deg) translate3d(684px,-280px,528px)"/>
+		</div>
+	</div>
+	<div id="upon" style="display:none;">
+		<div class="mask">
+			<iframe src="about:blank"></iframe>
+		</div>
+		<div class="uponmask">
+			<image src="mao.jpg"/>
+		</div>
+	</div>
+	<script src="../jquery-1.6.4.min.js"></script>
+	<script>
+		void function($) {
+			var rotate = {
+				x : 65,
+				y : 0,
+				z : 30
+			};
+			var $cube = $('.cube');
+			$('input').bind(
+			'change',
+			function(e) {
+				rotate[$(this).attr('data-name')] = this.value;
+				if(rotate.x>85){
+					rotate.x = 85;
+				}else if(rotate.x < 30){
+					rotate.x = 30;
+				}
+				$cube.css("WebkitTransform", "rotateX(" + rotate.x + "deg)  rotateZ(" + rotate.z
+				+ "deg)")
+			});
+			var img = $(".img")
+			img.bind("click",function(e){
+				$("#upon").show();
+			});
+			$("#upon").children().click(function(e){
+				$("#upon").hide()
+			})
+			img.bind("mouseenter",function(e){
+				$(e.target).css({
+					height:"200px",
+					width:"200px",
+					"WebkitTransformOrigin":"bottom"
+				})
+			});
+			img.bind("mouseleave",function(e){
+				$(e.target).css({
+					height:"100px",
+					width:"100px"//,
+					//"WebkitTransformOrigin":"bottom"
+				})
+			})
+		}(jQuery);
+	</script>
+</body>

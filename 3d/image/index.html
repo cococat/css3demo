@@ -1,0 +1,31 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>3d图片效果</title>
+		<style>
+		body{
+			
+		}
+		img{
+			
+			-webkit-transform-style:preserve-3d;
+		}
+		.img{
+			-webkit-transition : -webkit-transform 0.2s linear;
+		}
+		div{
+			border:none;margin:0px;padding:0px;
+		}
+		</style>
+	</head>
+	<body style="width:500px;margin:0px auto;text-align:center;">
+		<div style="z-index:0;position:relative;margin-top:50px;" class="img">
+			<img src="index.jpg" style="width:300px;"/>
+		</div>
+		<div id="slider1" class="slider" style="margin:10px auto;height:20px;position:relative;outline:none;background:#000;cursor:pointer;z-index:1">
+			<div id="bar1" class="bar" style="position:absolute;background:#999;height:20px;width:15px"></div>
+		</div>
+	</body>
+	<script src="jquery-1.6.4.min.js"></script>
+	<script src="index3.js"></script>
+</html>

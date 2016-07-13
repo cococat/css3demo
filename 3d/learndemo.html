@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>立方体</title>
+	<style>
+		.cube{
+			padding-top: 100px;
+			padding-left: 100px;
+			transform-style: preserve-3d;
+			perspective: 600px;
+		}
+		.cube>div{
+			height: 200px;
+			width: 200px;
+			color: #fff;
+			font-size: 30px;
+			opacity: 0.5;
+			backface-visibility:visible;
+		}
+		.item1{
+			background: red;
+		}
+		.item2{
+			background: blue;
+		}
+		.item3{
+			background: yellow;
+		}
+		.item4{
+			background: green;
+		}
+		.item5{
+			background: black;
+		}
+		.item6{
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="cube">
+		<div class="item1">1</div>
+		<div class="item2">2</div>
+		<div class="item3">3</div>
+		<div class="item4">4</div>
+		<div class="item5">5</div>
+		<div class="item6">6</div>
+	</div>
+</body>
+</html>

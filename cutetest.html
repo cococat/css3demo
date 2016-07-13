@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>正方体展开到旋转</title>
+    <style>
+    * {
+        padding: 0 ;margin: 0;
+    }
+    img {
+        border: 0;
+    }
+    
+    #view {
+        perspective: 500px;
+    }
+    
+    @keyframes scroll {
+        100% {
+            transform: rotate3d(100, 1, 1, 360deg);
+        }
+    }
+
+    #cube{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 200px auto;
+        perspective-origin: 1000px 100px;
+        animation: scroll 2s linear 7s infinite;
+        transform-style: preserve-3d;
+    }
+    
+    .item {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        opacity: 0.85;
+        text-align: center;
+        background: rgba(0,0,0,0.5);
+        font-size: 30px;
+        font-weight: bold;
+        color: #fff;
+        line-height: 200px;
+    }
+    
+    @keyframes item1 {
+        100% {
+            transform: rotateY(-90deg);
+        }
+    }
+    
+    #item1 {
+        z-index: 6;
+        transform-origin: left;
+        animation: item1 1s linear 1s both;
+    }
+    @keyframes item2 {
+        100% {
+            transform: rotateY(90deg);
+        }
+    }
+    
+    #item2 {
+        z-index: 5;
+        transform-origin: right;
+        animation: item2 1s linear 2s both;
+    }
+    
+    @keyframes item3 {
+        100% {
+            transform: rotateX(90deg);
+        }
+    }
+    
+    #item3 {
+        z-index: 4;
+        transform-origin: top;
+        animation: item3 1s linear 3s both;
+    }
+    @keyframes item4 {
+        100% {
+            transform: rotateX(-90deg);
+        }
+    }
+    #item4 {
+        z-index: 3;
+        transform-origin: bottom;
+        animation: item4 1s linear 4s both;
+    }
+    
+    @keyframes item5 {
+        100% {
+            transform: translateZ(200px);
+        }
+    }
+    
+    #item5 {
+        z-index: 2;
+        animation: item5 1s linear 5s both;
+    }
+    
+    @keyframes item6 {
+        100% {
+            transform: rotateY(180deg);
+        }
+    }
+    
+    #item6 {
+        z-index: 1;
+        animation: item6 1s linear 6s both;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="view">
+        <div id="cube">
+            <div class="item" id="item1">左边</div>
+            <div class="item" id="item2">右边</div>
+            <div class="item" id="item3">上面</div>
+            <div class="item" id="item4">底部</div>
+            <div class="item" id="item5">前面</div>
+            <div class="item" id="item6">后面</div>   
+       	</div>  
+    </div>
+</body>
+
+</html> 

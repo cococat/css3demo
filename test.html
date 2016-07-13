@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0" />
+    <style>
+    * {
+        border: 0;
+        margin: 0;
+        padding: 0
+    }
+    </style>
+</head>
+
+<body>
+    <!--<div id="shake1" class="tilla-auto" tilla="lotterynav:{id:'lotter1'}"></div>-->
+    <div id="shake"></div>
+    <div id="list2"></div>
+    <div id="list"></div>
+    <div id="nav"></div>
+    <div id="nav2"></div>
+    <div id="bet"></div>
+    <div id="cutdown"></div>
+    <script src="zepto.min.js"></script>
+    <script src="tilla.js"></script>
+    <script>
+    $(function() {
+        /*Tilla.run("lotterynav","#nav",{
+        	id:"lotternav"
+        });*/
+        // Tilla.use("lotterynav","#nav2",{top:200,id:"nav1"});
+        // Tilla.use("shake","#shake",{id:"a111",afterShake:function(){
+        // 	alert(Tilla.random(5,1,11));
+        // }});
+        // Tilla.use("historylist","#list",{id:"liuyt"});
+        // Tilla.use("historylist","#list2",{id:"lis1",selectColor:"black"});
+        // Tilla.use("betting","#bet",{id:"bet1"});
+        // Tilla.use("countdown","#cutdown",{id:"cutdown"});
+        Tilla.use("pie", "#cutdown", {
+            id: "cutdown",
+            centerTpl: '', //中间区域的html片段
+            diameter: 400,
+            speed: 200, //动画速度
+            border: 100,
+            cColor: "#fff",
+            bdColor: "black",
+            bkColor: "#eee",
+            mark:90,
+        });
+    });
+    </script>
+</body>
+
+</html>

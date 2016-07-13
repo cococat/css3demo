@@ -1,0 +1,78 @@
+<!doctype html>
+<head>
+<title>Cube</title>
+<style type="text/css">
+body{
+-webkit-transform-style: preserve-3d;
+height:500px;
+-webkit-perspective:800;
+}
+div.cube {
+	width: 200px;
+	height: 100px;
+	background:#000;
+	-webkit-transform:scale(0);
+	position:absolute;
+	bottom:50px;
+	-webkit-transition:-webkit-transform 0.6s linear,left 0.6s linear,height 0.6s linear,bottom 0.6s linear,background-color 0.6s linear;
+}
+
+</style>
+</head>
+<body>
+	<div class="cube cube1" ></div>
+	<div class="cube cube2" style="left:250px" ></div>
+	<div class="cube cube3" style="left:500px" ></div>
+	<script src="../jquery-1.6.4.min.js"></script>
+	<script>
+		void function($) {
+			var $cube1 = $(".cube1"),
+			$cube2 = $(".cube2"),
+			$cube3 = $(".cube3");
+			$cube1.css({
+				"WebkitTransform":"scale(1)",
+				"backgroundColor" : "#aaa"
+			});
+
+			setTimeout(function(){
+				$cube1.css({
+				"WebkitTransform":"scale(0)",
+				"backgroundColor" : "black"
+			})
+			},2000)
+			$cube2.css({
+				"WebkitTransform":"scale(1)",
+				"bottom" : "50px",
+				"backgroundColor" : "#aaa"
+			});
+
+			setTimeout(function(){
+				$cube2.css({
+				"WebkitTransform":"rotateY(-68.7deg)",
+				"WebkitTransformOrigin":"right",
+				"bottom" : "50px",
+				"left" : "200px",
+				"backgroundColor" : "black"
+			})
+			},2000)
+			$cube3.css({
+				"WebkitTransform":"scale(1)",
+				"bottom" : "50px",
+				"backgroundColor" : "#aaa"
+			});
+			setTimeout(function(){
+				$cube3.css({
+				"WebkitTransform":"rotateY(-82deg)",
+				"height" : "0px",
+				"bottom" : "50px",
+				"backgroundColor" : "black"
+			})
+			},2000);
+			$cube4.css({
+				"WebkitTransform":"scale(1.5)",
+				"bottom" : "50px",
+				"backgroundColor" : "#aaa"
+			});
+		}(jQuery);
+	</script>
+</body>

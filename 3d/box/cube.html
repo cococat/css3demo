@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+<title>Cube</title>
+<style type="text/css">
+div.cube {
+	width: 400px;
+	height: 400px;
+	padding: 100px;
+	-webkit-transform-style: preserve-3d;
+}
+
+div.cube>div {
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	border: 1px solid #AAA;
+	background:#fff;
+}
+</style>
+</head>
+<body>
+	<label>x<input type="number" value="0" step="5" data-name="x" /></label>
+	<label>y<input type="number" value="0" step="5" data-name="y" /></label>
+	<label>z<input type="number" value="0" step="5" data-name="z" /></label>
+	<div style="width: 800px; height: 800px; overflow: hidden; -webkit-perspective: 1200;">
+		<div class="cube">
+			<div style="background-color:red;-webkit-transform: translate3D(0, 0, 150px)">1</div>
+			<div style="-webkit-transform: translate3D(-150px, 0, 0) rotateY(-90deg)">2</div>
+			<div style="background-color:red;-webkit-transform: translate3D(0, 0, -150px) rotateY(180deg)">3</div>
+			<div style="-webkit-transform: translate3D(150px, 0, 0) rotateY(90deg)">4</div>
+			<div style="height:300px;background:blue;-webkit-transform: translate3D(0, -150px, 0) rotateX(90deg)">5</div>
+			<div style="height:300px;background:blue;-webkit-transform: translate3D(0, 0px, 0) rotateX(-90deg)">6</div>
+		</div>
+	</div>
+	<script src="../jquery-1.6.4.min.js"></script>
+	<script>
+		void function($) {
+			var rotate = {
+				x : 0,
+				y : 0,
+				z : 0
+			};
+			var $cube = $('.cube');
+			$('input').bind(
+			'change',
+			function(e) {
+				rotate[$(this).attr('data-name')] = this.value;
+				console.log(rotate);
+				rotate.x = rotate.x < 0?rotate.x:0;
+//rotate.x = rotate.x > -30 ?rotate.x:-30;
+				$cube.css("WebkitTransform", "rotateY(" + rotate.y + "deg)" +"rotateX(" + rotate.x + "deg)  "+"rotateZ(" + rotate.z + "deg)  ")
+			});
+		}(jQuery);
+	</script>
+</body>

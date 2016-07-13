@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title>Slide Demo</title>
+<style type="text/css">
+.slide-container {
+	-webkit-perspective: 900;
+	-webkit-perspective-origin: center -100px;
+}
+
+ul.slide {
+	list-style: none;
+	-webkit-transform: translateZ(-500px);
+	width: 1200px;
+	padding: 100px;
+	-webkit-transition: all 0.6s;
+	-webkit-transform-style: preserve-3d;
+}
+
+ul.slide>li {
+	-webkit-transform-origin: right 0;
+	display: list-item;
+	position: absolute;
+	width: 600px;
+	-webkit-transition: all 0.6s;
+}
+
+ul.slide>li img {
+	width: 300px;
+	height:300px
+}
+</style>
+</head>
+<body>
+	<div class="slide-container">
+		<ul id="slide" class="slide"></ul>
+	</div>
+	<script src="../jquery-1.6.4.min.js"></script>
+	<script src="slide.js"></script>
+</body>
+</html>
